@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawn } from "child_process";
-import path from "path";
+import path from "node:path";
 
 function run(cmd: string, args: string[], cwd: string) {
   return spawn(cmd, args, { cwd, stdio: "inherit", shell: true });

@@ -1,8 +1,11 @@
 import * as esbuild from "esbuild";
 import express from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function start() {
     const dist = path.join(__dirname, "dist");
@@ -47,19 +50,21 @@ async function start() {
     // STATIC FILES
     app.use(express.static(dist));
 
-    // 🔥 SPA FALLBACK (Express 5 safe)
+    // 🔥 SPA FALLBACK - Fix: use middleware instead of route
     app.use((req, res) => {
         res.sendFile(path.join(dist, "index.html"));
     });
 
     // RUN LOCAL DEV SERVER
     app.listen(4201, () => {
-        console.log("Client dev server running at http://localhost:4201");
-        console.log("Proxy ACTIVE: /api → http://localhost:3000");
+        console.log("✅ Client dev server running at http://localhost:4201");
+        console.log("✅ Proxy ACTIVE: /api → http://localhost:3000");
     });
 }
 
-start().catch((err) => {
+try {
+    await start();
+} catch (err) {
     console.error(err);
     process.exit(1);
-});
+}

@@ -1,5 +1,5 @@
 import fs from "fs";
-import path from "path";
+import path from "node:path";
 import { Express } from "express";
 
 export function loadApiRoutes(app: Express) {

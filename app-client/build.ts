@@ -1,6 +1,6 @@
 import * as esbuild from "esbuild";
 import fs from "fs";
-import path from "path";
+import path from "node:path";
 
 const dist = path.join(__dirname, "dist");
 const src = path.join(__dirname, "src");

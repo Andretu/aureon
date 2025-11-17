@@ -2,9 +2,10 @@
   "name": "aureon-app-client",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "ts-node dev.ts",
-    "build": "ts-node build.ts"
+    "dev": "tsx dev.ts",
+    "build": "tsx build.ts"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -12,6 +13,7 @@
     "@types/node": "^20.12.7",
     "esbuild": "^0.20.2",
     "ts-node": "^10.9.2",
+    "tsx": "^4.7.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
