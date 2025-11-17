@@ -1,0 +1,9 @@
+{
+  "name": "aureon-cli",
+  "version": "1.0.0",
+  "bin": {
+    "aureon": "aureon"
+  },
+  "type": "module",
+  "dependencies": {}
+}
