@@ -6,7 +6,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// API only
+// Root route
+app.get('/', (req, res) => {
+    res.json({ message: 'Aureon API Server' });
+});
+
+// API routes
 loadApiRoutes(app);
 
 const server = app.listen(3000, () => {
