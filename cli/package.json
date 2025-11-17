@@ -1,9 +1,19 @@
 {
   "name": "aureon-cli",
   "version": "1.0.0",
+  "description": "CLI per creare progetti Aureon Full-Stack",
+  "main": "aureon.js",
   "bin": {
-    "aureon": "aureon"
+    "aureon": "aureon.js"
   },
   "type": "module",
-  "dependencies": {}
+  "scripts": {
+    "test": "node aureon.js"
+  },
+  "keywords": ["cli","aureon","framework","typescript","fullstack","microservices"],
+  "author": "Andre Turci",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.1.1"
+  }
 }
